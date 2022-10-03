@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">R&amp;DPasswordQuality</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_quality">Password Quality</string>
+    <string name="apply">Apply</string>
+    <string name="device_admin">Device Admin</string>
+    <string name="sample_device_admin_description">My description</string>
+
+    <array name="password_quality">
+        <item>PASSWORD_QUALITY_UNSPECIFIED</item>
+        <item>PASSWORD_QUALITY_BIOMETRIC_WEAK</item>
+        <item>PASSWORD_QUALITY_SOMETHING</item>
+        <item>PASSWORD_QUALITY_NUMERIC</item>
+        <item>PASSWORD_QUALITY_NUMERIC_COMPLEX</item>
+        <item>PASSWORD_QUALITY_ALPHABETIC</item>
+        <item>PASSWORD_QUALITY_ALPHANUMERIC</item>
+        <item>PASSWORD_QUALITY_COMPLEX</item>
+    </array>
+
+</resources>
