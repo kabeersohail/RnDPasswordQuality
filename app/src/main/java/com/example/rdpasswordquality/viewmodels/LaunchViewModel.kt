@@ -13,7 +13,7 @@ class LaunchViewModel : ViewModel() {
     val selectedQuality: LiveData<String> = _selectedQuality
 
     fun applyPasswordQuality(quality: AutoCompleteTextView){
-        Log.d("SOHAIL",quality.text.toString())
+        Log.d("LaunchViewModel",quality.text.toString())
         _selectedQuality.postValue(quality.text.toString())
     }
 

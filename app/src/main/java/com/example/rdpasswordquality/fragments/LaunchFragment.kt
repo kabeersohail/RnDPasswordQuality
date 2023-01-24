@@ -73,7 +73,7 @@ class LaunchFragment : Fragment() {
 
     private fun showToastAndLog(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-        Log.d("SOHAIL", message)
+        Log.d("LaunchFragment", message)
     }
 
 }
