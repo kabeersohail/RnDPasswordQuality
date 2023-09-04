@@ -1,5 +1,7 @@
 package com.example.rdpasswordquality.fragments
 
+import android.app.admin.DevicePolicyManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rdpasswordquality.adapters.AlwaysOnVPNAdapter
 import com.example.rdpasswordquality.databinding.FragmentAlwaysOnVpnBinding
+import com.example.rdpasswordquality.extensions.setSelectedPackage
+import com.example.rdpasswordquality.receivers.AdminReceiver
 
 class AlwaysOnVPNFragment : Fragment() {
 
@@ -28,8 +32,14 @@ class AlwaysOnVPNFragment : Fragment() {
 
         val layoutManager = LinearLayoutManager(requireContext()) // Use requireContext() to get the context
         binding.vpnAppsRecyclerView.layoutManager = layoutManager
+        val mDpm = requireContext().getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+        binding.vpnAppsRecyclerView.adapter = AlwaysOnVPNAdapter(requireContext(), fetchTheListOfVPNAppsInstalledOnTheDevice(requireContext()), mDpm)
 
-        binding.vpnAppsRecyclerView.adapter = AlwaysOnVPNAdapter(requireContext(), fetchTheListOfVPNAppsInstalledOnTheDevice(requireContext()))
+        val componentName = ComponentName(requireContext(), AdminReceiver::class.java)
+
+        binding.clearAlwaysOnVpn.setOnClickListener {
+            requireContext().setSelectedPackage(null, componentName, mDpm)
+        }
     }
 
     private fun fetchTheListOfVPNAppsInstalledOnTheDevice(context: Context): List<String> {
@@ -47,7 +57,7 @@ class AlwaysOnVPNFragment : Fragment() {
             // Check if the app is a VPN app based on some criteria
             if (isVPNApp(packageName)) {
                 val appName = resolveInfo.loadLabel(packageManager).toString()
-                vpnAppsList.add(appName)
+                vpnAppsList.add(packageName)
             }
         }
 

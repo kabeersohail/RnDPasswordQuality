@@ -1,17 +1,26 @@
 package com.example.rdpasswordquality.adapters
 
+import android.app.admin.DevicePolicyManager
+import android.content.ComponentName
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rdpasswordquality.R
+import com.example.rdpasswordquality.extensions.setSelectedPackage
+import com.example.rdpasswordquality.receivers.AdminReceiver
 
-class AlwaysOnVPNAdapter(private val context: Context, private val vpnApps: List<String>) :
+class AlwaysOnVPNAdapter(
+    private val context: Context,
+    private val vpnApps: List<String>,
+    private val devicePolicyManager: DevicePolicyManager
+) :
     RecyclerView.Adapter<AlwaysOnVPNAdapter.AlwaysOnVPNViewHolder>() {
+
+    private val componentName = ComponentName(context, AdminReceiver::class.java)
 
     inner class AlwaysOnVPNViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.vpn_app_name)
@@ -28,12 +37,12 @@ class AlwaysOnVPNAdapter(private val context: Context, private val vpnApps: List
         holder.textView.text = item
 
         holder.vpnLayout.setOnClickListener {
-            Toast.makeText(context, vpnApps[position] , Toast.LENGTH_SHORT).show()
+            context.setSelectedPackage(vpnApps[position], componentName, devicePolicyManager)
         }
-
     }
 
     override fun getItemCount(): Int {
         return vpnApps.size
     }
+
 }

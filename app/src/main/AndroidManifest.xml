@@ -7,6 +7,9 @@
         android:name="com.weguard.android.providers.permission.READ"
         android:protectionLevel="signature" />
 
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
     <uses-permission
         android:name="android.permission.AUTHENTICATE_ACCOUNTS"
         android:maxSdkVersion="22" />
