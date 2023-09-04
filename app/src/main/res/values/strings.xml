@@ -13,6 +13,7 @@
     <string name="null_value">NULL</string>
     <string name="set">Set</string>
     <string name="clear">Clear</string>
+    <string name="example_vpn_name">Example VPN Name</string>
 
     <array name="password_quality">
         <item>PASSWORD_QUALITY_UNSPECIFIED</item>

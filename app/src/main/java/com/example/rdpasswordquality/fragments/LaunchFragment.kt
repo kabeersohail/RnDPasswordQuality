@@ -61,7 +61,7 @@ class LaunchFragment : Fragment() {
 
             when(it) {
                 "Always-On VPN" -> {
-
+                    findNavController().navigate(R.id.action_launchFragment_to_alwaysOnVPNFragment)
                 }
                 "GET DEVICE MAC ADDRESS" -> {
                     manageInputMethodsForDevices.getDeviceMacAddress()

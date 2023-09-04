@@ -12,10 +12,17 @@
         <action
             android:id="@+id/action_launchFragment_to_manageInputMethod"
             app:destination="@id/manageInputMethod" />
+        <action
+            android:id="@+id/action_launchFragment_to_alwaysOnVPNFragment"
+            app:destination="@id/alwaysOnVPNFragment" />
     </fragment>
     <fragment
         android:id="@+id/manageInputMethod"
         android:name="com.example.rdpasswordquality.fragments.ManageInputMethodFragment"
         android:label="fragment_manage_input_method"
         tools:layout="@layout/fragment_manage_input_method" />
+    <fragment
+        android:id="@+id/alwaysOnVPNFragment"
+        android:name="com.example.rdpasswordquality.fragments.AlwaysOnVPNFragment"
+        android:label="AlwaysOnVPNFragment" />
 </navigation>
