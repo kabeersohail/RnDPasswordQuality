@@ -60,6 +60,9 @@ class LaunchFragment : Fragment() {
         viewModel.selectedRestriction.observe(requireActivity()) {
 
             when(it) {
+                "Always-On VPN" -> {
+
+                }
                 "GET DEVICE MAC ADDRESS" -> {
                     manageInputMethodsForDevices.getDeviceMacAddress()
                 }
