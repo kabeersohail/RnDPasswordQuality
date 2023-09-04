@@ -9,18 +9,12 @@ import androidx.lifecycle.ViewModel
 
 class LaunchViewModel : ViewModel() {
 
-    private val _selectedQuality: MutableLiveData<String> = MutableLiveData()
-    val selectedQuality: LiveData<String> = _selectedQuality
+    private val _selectedRestriction: MutableLiveData<String> = MutableLiveData()
+    val selectedRestriction: LiveData<String> = _selectedRestriction
 
-    fun applyPasswordQuality(quality: AutoCompleteTextView){
+    fun applyPasswordQuality(quality: AutoCompleteTextView) {
         Log.d("LaunchViewModel",quality.text.toString())
-        _selectedQuality.postValue(quality.text.toString())
+        _selectedRestriction.postValue(quality.text.toString())
     }
-
-    /**
-     * 1. WeBox demo
-     * 2. Youtube WeBox tutorial
-     * 3. Check if WeSupport demo is possible
-     */
 
 }

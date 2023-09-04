@@ -3,6 +3,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.rdpasswordquality">
 
+    <permission
+        android:name="com.weguard.android.providers.permission.READ"
+        android:protectionLevel="signature" />
+
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.REQUEST_PASSWORD_COMPLEXITY" />
+    <uses-permission android:name="com.sec.enterprise.knox.permission.CUSTOM_PROKIOSK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.sec.MDM_SECURITY" />
+    <uses-permission android:name="android.permission.sec.MDM_APP_MGMT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.sec.enterprise.knox.permission.CUSTOM_SYSTEM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.sec.enterprise.knox.permission.CUSTOM_SEALEDMODE" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_CUSTOM_SEALEDMODE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_APP_MGMT" />
+    <uses-permission android:name="android.permission.sec.MDM_RESTRICTION" />
+    <uses-permission android:name="com.sec.enterprise.knox.permission.CUSTOM_SETTING" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.sec.MDM_KIOSK_MODE" />
+    <uses-permission android:name="com.sec.enterprise.permission.MDM_SPDCONTROL" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.sec.MDM_HW_CONTROL" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_CUSTOM_SYSTEM" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> <!-- Same key self signed apps are allowed to READ cshared data -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_HW_CONTROL" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_SECURITY" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_CUSTOM_PROKIOSK" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_CUSTOM_SETTING" />
+
+    <uses-permission-sdk-23 android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <queries>
+        <package android:name="com.weguard.downloadmanager" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +97,7 @@
         android:theme="@style/Theme.RDPasswordQuality"
         tools:targetApi="31">
         <activity
+            android:enabled="true"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,6 +105,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+
         </activity>
 
         <receiver

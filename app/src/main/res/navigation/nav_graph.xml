@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/launchFragment">
 
     <fragment
         android:id="@+id/launchFragment"
         android:name="com.example.rdpasswordquality.fragments.LaunchFragment"
-        android:label="LaunchFragment" />
+        android:label="LaunchFragment" >
+        <action
+            android:id="@+id/action_launchFragment_to_manageInputMethod"
+            app:destination="@id/manageInputMethod" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageInputMethod"
+        android:name="com.example.rdpasswordquality.fragments.ManageInputMethodFragment"
+        android:label="fragment_manage_input_method"
+        tools:layout="@layout/fragment_manage_input_method" />
 </navigation>
