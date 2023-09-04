@@ -13,7 +13,7 @@ import com.example.rdpasswordquality.databinding.FragmentAlwaysOnVpnBinding
 
 class AlwaysOnVPNFragment : Fragment() {
 
-    lateinit var binding: FragmentAlwaysOnVpnBinding
+    private lateinit var binding: FragmentAlwaysOnVpnBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +29,7 @@ class AlwaysOnVPNFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext()) // Use requireContext() to get the context
         binding.vpnAppsRecyclerView.layoutManager = layoutManager
 
-        binding.vpnAppsRecyclerView.adapter = AlwaysOnVPNAdapter(fetchTheListOfVPNAppsInstalledOnTheDevice(requireContext()))
+        binding.vpnAppsRecyclerView.adapter = AlwaysOnVPNAdapter(requireContext(), fetchTheListOfVPNAppsInstalledOnTheDevice(requireContext()))
     }
 
     private fun fetchTheListOfVPNAppsInstalledOnTheDevice(context: Context): List<String> {
@@ -45,7 +45,7 @@ class AlwaysOnVPNFragment : Fragment() {
         for (resolveInfo in resolveInfoList) {
             val packageName = resolveInfo.activityInfo.packageName
             // Check if the app is a VPN app based on some criteria
-            if (isVPNApp(packageName, context)) {
+            if (isVPNApp(packageName)) {
                 val appName = resolveInfo.loadLabel(packageManager).toString()
                 vpnAppsList.add(appName)
             }
@@ -55,7 +55,7 @@ class AlwaysOnVPNFragment : Fragment() {
     }
 
     // Helper function to determine if an app is a VPN app based on some criteria
-    private fun isVPNApp(packageName: String, context: Context): Boolean {
+    private fun isVPNApp(packageName: String): Boolean {
         // Implement your criteria here
         // For example, you could check if the app's name or package name contains "VPN" or similar keywords
         // You might need to do additional checks depending on your specific requirements

@@ -4,28 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:padding="5dp"
-        android:id="@+id/vpn_icon"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/vpn_app_name"
-        app:layout_constraintHorizontal_weight="0.4"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vpn_layout"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:padding="5dp"
-        android:id="@+id/vpn_app_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/example_vpn_name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="0.6"
-        app:layout_constraintStart_toEndOf="@id/vpn_icon"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:padding="5dp"
+            android:id="@+id/vpn_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/vpn_app_name"
+            app:layout_constraintHorizontal_weight="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/vpn_app_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/example_vpn_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.6"
+            app:layout_constraintStart_toEndOf="@id/vpn_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
